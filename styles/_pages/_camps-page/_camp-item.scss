@@ -1,0 +1,36 @@
+.camp-item {
+  padding: 0.5rem;
+  border: 1px solid $grey-border;
+  display: flex;
+  flex-direction: column;
+  p {
+    font-size: 14px;
+  }
+  h4 {
+    margin-top: revert;
+  }
+  .camp-btn {
+    border: 1px solid $grey-border;
+    width: 94%;
+    background: transparent;
+    color: $black;
+    padding: 0.5rem 0;
+    font-weight: bolder;
+    transition: $transition;
+    // position: absolute;
+    // bottom: 0.5rem;
+    &:hover {
+      color: $white;
+      background: $black;
+    }
+  }
+  img {
+    object-fit: cover;
+  }
+}
+
+@include media("<=445px") {
+  .camp-item {
+    height: 370px;
+  }
+}

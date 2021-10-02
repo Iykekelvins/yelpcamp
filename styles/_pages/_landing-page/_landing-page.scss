@@ -1,0 +1,105 @@
+.landing-page {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  .logo {
+    padding: 4rem 0 3rem;
+  }
+  &__left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0.6;
+    background: $grey-background;
+    &__info {
+      max-width: 27rem;
+      margin: auto;
+      .steps {
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+        article {
+          margin-bottom: -1rem;
+          p {
+            margin-left: 0.5rem;
+          }
+        }
+      }
+      .flex-ac-jb {
+        margin-left: -1rem;
+        margin-top: -1rem;
+        margin-bottom: 2rem;
+        max-width: 30rem;
+      }
+      .partners {
+        margin-top: 2rem;
+      }
+    }
+  }
+  &__right-side {
+    flex: 0.4;
+    background-image: url(../../../assets/HeroImage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 50%;
+  }
+}
+
+@include media("<=1240px") {
+  .landing-page {
+    &__left-side {
+      flex: 0.5;
+    }
+    &__right-side {
+      flex: 0.5;
+    }
+  }
+}
+
+@include media("<=980px") {
+  .landing-page {
+    flex-direction: column-reverse;
+    background: $grey-background;
+    height: auto;
+    position: relative;
+    &__left-side {
+      display: unset;
+      &__info {
+        max-width: 40rem;
+        margin: unset;
+        padding: 3rem 1.5rem 2rem;
+        .logo {
+          position: absolute;
+          top: 2.5rem;
+          padding: unset;
+        }
+      }
+    }
+    &__right-side {
+      background-image: url(../../../assets/HeroImage-Tablet-and-Mobile.jpg);
+      padding-top: 25rem;
+      margin-top: 7rem;
+    }
+  }
+}
+
+@include media("<=614px") {
+  .landing-page {
+    &__left-side__info {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+
+@include media("<=390px") {
+  .landing-page {
+    &__left-side__info {
+      padding: 1rem;
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+}

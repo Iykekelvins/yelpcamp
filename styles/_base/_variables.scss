@@ -1,0 +1,27 @@
+/* SASS Variables */
+$black: #000;
+$white: #fff;
+$grey-100: #7e858e;
+$grey-1: #333;
+$grey-2: #4f4f4f;
+$grey-3: #828282;
+$grey-4: #bdbdbd;
+$grey-6: #f2f2f2;
+$subtle: #767676;
+$grey-background: #f0f0f0;
+$grey-border: #f5f1f1;
+$light-grey: #d7dfe9;
+$light-grey-24: rgba(215, 223, 233, 0.24);
+$transition: all 0.3s linear;
+
+//Responsive Variables
+$breakpoints: (
+  phone: 320px,
+  phone2x: 480px,
+  phone3x: 768px,
+  tablet: 992px,
+  tablet2x: 1024px,
+  desktop: 1200px,
+  desktop2x: 1440px,
+  desktop3x: 1680px,
+);

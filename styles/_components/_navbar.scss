@@ -1,0 +1,14 @@
+.navbar {
+  padding: 1rem 0 1.5rem;
+}
+.nav-btn {
+  border: none;
+  background: none;
+  color: $grey-3;
+  &__left {
+    margin-left: 1rem;
+  }
+  &__right {
+    margin-right: 1rem;
+  }
+}

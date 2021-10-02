@@ -1,0 +1,57 @@
+.camp-hero {
+  background: $grey-background;
+  padding: 2rem;
+  p {
+    max-width: 25rem;
+  }
+  &__form {
+    &--group {
+      border: 1px solid $grey-border;
+      background: $white;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      margin-right: 1rem;
+      width: 280px;
+      .search {
+        margin-right: 0.5rem;
+        padding-top: 0.3rem;
+      }
+      input {
+        height: 15px;
+        width: 100%;
+        border: none;
+        color: inherit;
+        font-family: inherit;
+      }
+    }
+  }
+  .add-camp-btn {
+    border-bottom: 1px solid $grey-3;
+    padding: 0;
+    margin-top: 1rem;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    padding: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: 16px;
+    background: none;
+  }
+}
+
+@include media("<=445px") {
+  .camp-hero {
+    padding: 1rem 1rem 1.5rem;
+    &__form {
+      display: block;
+      &--group {
+        width: 100%;
+      }
+      .app-btn {
+        width: 100%;
+        margin-top: 0.7rem;
+      }
+    }
+  }
+}

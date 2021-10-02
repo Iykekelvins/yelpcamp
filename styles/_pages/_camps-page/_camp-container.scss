@@ -1,0 +1,50 @@
+.camp-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  margin: 4rem auto;
+  grid-gap: 1rem;
+}
+.empty-camp-list {
+  flex-direction: column;
+  margin-top: 4rem;
+  h1 {
+    font-style: italic;
+  }
+  button {
+    margin-top: 2rem;
+  }
+}
+
+.new-camp {
+  transition: $transition;
+  animation-name: scale;
+  animation-duration: 1s;
+
+  .form {
+    width: 70%;
+    margin: 0 auto 4rem;
+  }
+}
+
+@include media("<=980px") {
+  .new-camp > .form {
+    width: 50%;
+  }
+}
+
+@include media("<=768px") {
+  .camp-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .new-camp,
+  .new-camp > .form {
+    width: 100%;
+  }
+}
+
+@include media("<=445px") {
+  .camp-container {
+    grid-template-columns: 1fr;
+  }
+}

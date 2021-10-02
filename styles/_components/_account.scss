@@ -1,0 +1,102 @@
+.account {
+  display: flex;
+  height: 100vh;
+  header {
+    position: absolute;
+    top: 1rem;
+    width: 31rem;
+    max-width: 31rem;
+  }
+  &__left-side {
+    position: relative;
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__info {
+      margin: auto;
+      max-width: 31rem;
+    }
+    .form-container {
+      margin-top: 4rem;
+    }
+    h4 {
+      color: inherit;
+      margin-top: 1rem;
+      span {
+        color: rgb(51, 51, 236);
+        text-decoration: underline;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+  &__right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: $grey-background;
+    flex: 0.4;
+    &--content {
+      margin: auto;
+      max-width: 15rem;
+    }
+    .testimonial {
+      margin-top: 1rem;
+    }
+    .user {
+      padding-left: 0.5rem;
+      h5 {
+        margin-bottom: -1.5rem;
+        padding-top: 1.5rem;
+      }
+    }
+  }
+}
+
+@include media("<=980px") {
+  .account {
+    flex-direction: column;
+    position: relative;
+    &__left-side {
+      flex: unset;
+      position: unset;
+      .form {
+        width: 80%;
+      }
+      &__info {
+        max-width: unset;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-bottom: 2rem;
+        header {
+          width: 90%;
+          max-width: unset;
+        }
+      }
+    }
+    &__right-side {
+      flex: unset;
+      &--content {
+        padding: 2rem 1.5rem;
+        max-width: unset;
+      }
+    }
+  }
+}
+
+@include media("<=500px") {
+  .account {
+    h2 {
+      font-size: 1.5rem;
+    }
+    .form {
+      width: unset;
+    }
+  }
+}
+
+@include media("<=500px") {
+  .account > h2 {
+    font-size: 1.3rem;
+  }
+}
