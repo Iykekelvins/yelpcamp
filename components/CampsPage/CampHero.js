@@ -5,7 +5,7 @@ import { useState } from "react";
 import { camps } from "../../public/camps";
 import { useGlobalContext } from "../../context/context";
 
-const campHero = () => {
+const CampHero = () => {
   const [inputValue, setInputValue] = useState("");
   const { setCampList, setEmptyCampList, setAddCamp } = useGlobalContext();
 
@@ -60,4 +60,4 @@ const campHero = () => {
   );
 };
 
-export default campHero;
+export default CampHero;

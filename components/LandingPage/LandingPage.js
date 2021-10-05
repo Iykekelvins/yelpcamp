@@ -32,8 +32,8 @@ const LandingPage = () => {
             Unfiltered and unbiased reviews
           </p>
           <div className="steps">
-            {steps.map((step, index) => (
-              <article key={index} className="flex-ac">
+            {steps.map((step) => (
+              <article key={new Date().getTime.toString()} className="flex-ac">
                 <Image
                   src={appSvgs.checkmark}
                   height={24}
@@ -52,8 +52,8 @@ const LandingPage = () => {
           <div className="partners">
             <p>Partnered with:</p>
             <div className="flex-ac-jb">
-              {partners.map((partner, index) => (
-                <span key={index}>{partner}</span>
+              {partners.map((partner) => (
+                <span key={new Date().getTime.toString()}>{partner}</span>
               ))}
             </div>
           </div>

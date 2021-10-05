@@ -6,7 +6,8 @@ const NewCamp = () => {
   const { setAddCamp, campList, setCampList } = useGlobalContext();
   const [img, setImg] = useState(null);
   const onChangeImg = (e) => {
-    setImg(`/${e.target.files[0].name}`);
+    setImg(e.target.files[0]);
+    console.log(img);
   };
   const [inputValue, setInputValue] = useState({
     title: "",

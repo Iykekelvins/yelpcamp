@@ -7,7 +7,7 @@ import {
 } from "../../components";
 import { useGlobalContext } from "../../context/context";
 
-const camps = () => {
+const Camps = () => {
   const style = {
     display: "none",
   };
@@ -26,4 +26,4 @@ const camps = () => {
   );
 };
 
-export default camps;
+export default Camps;
