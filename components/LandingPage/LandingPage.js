@@ -9,6 +9,7 @@ const LandingPage = () => {
     "Leave reviews and experiences.",
     "See locations for all camps.",
   ];
+
   const partners = [
     <Image src={appSvgs.airbnb} width={83} height={42} alt="airbnb logo" />,
     <Image src={appSvgs.booking} width={131} height={42} alt="booking logo" />,
@@ -32,8 +33,8 @@ const LandingPage = () => {
             Unfiltered and unbiased reviews
           </p>
           <div className="steps">
-            {steps.map((step) => (
-              <article key={new Date().getTime.toString()} className="flex-ac">
+            {steps.map((step, index) => (
+              <article key={index} className="flex-ac">
                 <Image
                   src={appSvgs.checkmark}
                   height={24}
@@ -52,8 +53,8 @@ const LandingPage = () => {
           <div className="partners">
             <p>Partnered with:</p>
             <div className="flex-ac-jb">
-              {partners.map((partner) => (
-                <span key={new Date().getTime.toString()}>{partner}</span>
+              {partners.map((partner, index) => (
+                <span key={index}>{partner}</span>
               ))}
             </div>
           </div>
