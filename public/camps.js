@@ -1,9 +1,9 @@
-import buloy from "../assets/Camp Images/Buloy Springs.jpg";
-import calaguas from "../assets/Camp Images/Calaguas Island.jpg";
-import latik from "../assets/Camp Images/Latik Riverside.jpg";
-import ulap from "../assets/Camp Images/Mount Ulap.jpg";
-import onay from "../assets/Camp Images/Onay Beach.jpg";
-import seven_sisters from "../assets/Camp Images/Seven Sisters Waterfall.jpg";
+import buloy from "/assets/Camp Images/Buloy Springs.jpg";
+import calaguas from "/assets/Camp Images/Calaguas Island.jpg";
+import latik from "/assets/Camp Images/Latik Riverside.jpg";
+import ulap from "/assets/Camp Images/Mount Ulap.jpg";
+import onay from "/assets/Camp Images/Onay Beach.jpg";
+import seven_sisters from "/assets/Camp Images/Seven Sisters Waterfall.jpg";
 
 export const camps = [
   {
