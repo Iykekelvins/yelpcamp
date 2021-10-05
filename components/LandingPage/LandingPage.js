@@ -33,14 +33,14 @@ const LandingPage = () => {
             Unfiltered and unbiased reviews
           </p>
           {steps.map((step, index) => (
-            <article key={index} className="flex-ac">
+            <article key={new Date().getTime().toString()} className="flex-ac">
               <Image
                 src={appSvgs.checkmark}
                 height={24}
                 width={24}
-                alt="checkmark icon"
+                alt="checkmark icon"   
               />
-              <p key={index}>{step}</p>
+              <p>{step}</p>
             </article>
           ))}
           <Link href="/camps">
@@ -52,7 +52,7 @@ const LandingPage = () => {
             <p>Partnered with:</p>
             <div className="flex-ac-jb">
               {partners.map((partner, index) => (
-                <span key={index}>{partner}</span>
+                <span key={new Date().getTime().toString()}>{partner}</span>
               ))}
             </div>
           </div>
