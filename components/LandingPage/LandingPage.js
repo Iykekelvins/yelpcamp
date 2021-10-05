@@ -33,14 +33,14 @@ const LandingPage = () => {
             Unfiltered and unbiased reviews
           </p>
           {steps.map((step, index) => (
-            <article key={index} className="flex-ac">
+            <article className="flex-ac">
               <Image
                 src={appSvgs.checkmark}
                 height={24}
                 width={24}
                 alt="checkmark icon"
               />
-              <p>{step}</p>
+              <p key={index}>{step}</p>
             </article>
           ))}
           <Link href="/camps">
