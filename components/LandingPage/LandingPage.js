@@ -33,7 +33,7 @@ const LandingPage = () => {
             Unfiltered and unbiased reviews
           </p>
           {steps.map((step, index) => (
-            <article className="flex-ac">
+            <article key={index} className="flex-ac">
               <Image
                 src={appSvgs.checkmark}
                 height={24}
