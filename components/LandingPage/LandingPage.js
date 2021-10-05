@@ -32,17 +32,7 @@ const LandingPage = () => {
             Yelpcamp is a curated list of the best camping spots on Earth.
             Unfiltered and unbiased reviews
           </p>
-          {steps.map((step, index) => (
-            <article key={new Date().getTime().toString()} className="flex-ac">
-              <Image
-                src={appSvgs.checkmark}
-                height={24}
-                width={24}
-                alt="checkmark icon"   
-              />
-              <p>{step}</p>
-            </article>
-          ))}
+
           <Link href="/camps">
             <a>
               <Button title="View Campgrounds" />
