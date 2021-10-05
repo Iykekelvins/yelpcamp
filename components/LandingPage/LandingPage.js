@@ -32,7 +32,7 @@ const LandingPage = () => {
             Yelpcamp is a curated list of the best camping spots on Earth.
             Unfiltered and unbiased reviews
           </p>
-          <div className="steps">
+          {/* <div className="steps">
             {steps.map((step, index) => (
               <article key={index} className="flex-ac">
                 <Image
@@ -44,7 +44,7 @@ const LandingPage = () => {
                 <p>{step}</p>
               </article>
             ))}
-          </div>
+          </div> */}
           <Link href="/camps">
             <a>
               <Button title="View Campgrounds" />
@@ -52,11 +52,12 @@ const LandingPage = () => {
           </Link>
           <div className="partners">
             <p>Partnered with:</p>
-            <div className="flex-ac-jb">
+
+            {/* <div className="flex-ac-jb">
               {partners.map((partner, index) => (
                 <span key={index}>{partner}</span>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </article>
