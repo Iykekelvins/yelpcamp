@@ -4,22 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const LandingPage = () => {
-  const steps = [
-    "Add your own camp suggestions.",
-    "Leave reviews and experiences.",
-    "See locations for all camps.",
-  ];
-
-  const partners = [
-    <Image src={appSvgs.airbnb} width={83} height={42} alt="airbnb logo" />,
-    <Image src={appSvgs.booking} width={131} height={42} alt="booking logo" />,
-    <Image
-      src={appSvgs.plum_guide}
-      width={160}
-      height={42}
-      alt="plum guide logo"
-    />,
-  ];
   return (
     <section className="landing-page">
       <article className="landing-page__left-side">
@@ -33,17 +17,33 @@ const LandingPage = () => {
             Unfiltered and unbiased reviews
           </p>
           <ul className="steps">
-            {steps.map((step) => (
-              <li key={step} className="flex-ac">
-                <Image
-                  src={appSvgs.checkmark}
-                  height={24}
-                  width={24}
-                  alt="checkmark icon"
-                />
-                <p>{step}</p>
-              </li>
-            ))}
+            <li className="flex-ac">
+              <Image
+                src={appSvgs.checkmark}
+                height={24}
+                width={24}
+                alt="checkmark icon"
+              />
+              <p>Add your own camp suggestions.</p>
+            </li>
+            <li className="flex-ac">
+              <Image
+                src={appSvgs.checkmark}
+                height={24}
+                width={24}
+                alt="checkmark icon"
+              />
+              <p>Leave reviews and experiences.</p>
+            </li>
+            <li className="flex-ac">
+              <Image
+                src={appSvgs.checkmark}
+                height={24}
+                width={24}
+                alt="checkmark icon"
+              />
+              <p>See locations for all camps.</p>
+            </li>
           </ul>
           <Link href="/camps">
             <a>
@@ -53,9 +53,31 @@ const LandingPage = () => {
           <div className="partners">
             <p>Partnered with:</p>
             <ul className="flex-ac-jb">
-              {partners.map((partner) => (
-                <li key={partner}>{partner}</li>
-              ))}
+              <li>
+                <Image
+                  src={appSvgs.airbnb}
+                  width={83}
+                  height={42}
+                  alt="airbnb logo"
+                />
+              </li>
+              <li>
+                <Image
+                  src={appSvgs.booking}
+                  width={131}
+                  height={42}
+                  alt="booking logo"
+                />
+              </li>
+              <li>
+                {" "}
+                <Image
+                  src={appSvgs.plum_guide}
+                  width={160}
+                  height={42}
+                  alt="plum guide logo"
+                />
+              </li>
             </ul>
           </div>
         </div>
