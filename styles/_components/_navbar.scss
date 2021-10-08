@@ -1,5 +1,9 @@
 .navbar {
   padding: 1rem 0 1.5rem;
+
+  .toggle-btn {
+    display: none;
+  }
 }
 .nav-btn {
   border: none;
@@ -10,5 +14,42 @@
   }
   &__right {
     margin-right: 1rem;
+  }
+}
+
+@include media("<=768px") {
+  .nav-header {
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    background: $white;
+  }
+  .phone-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 70%;
+    background: $white;
+    z-index: 9;
+    flex-direction: column;
+  }
+  .hamburger-btn {
+    display: unset !important;
+    padding-top: 0.4rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    display: flex;
+  }
+  .cta-btn {
+    display: none;
+  }
+  .close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 4rem;
+    transform: scale(1.8);
+    padding: 0.3rem 0.5rem;
+    background: none;
   }
 }
