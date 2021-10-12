@@ -16,6 +16,7 @@ import CampContainer from "./CampsPage/CampContainer";
 import CampItem from "./CampsPage/CampItem";
 import Review from "./CampsPage/Review";
 import NewCamp from "./CampsPage/NewCamp";
+import NewComment from "./CampsPage/NewComment";
 
 export {
   Account,
@@ -31,4 +32,5 @@ export {
   CampItem,
   Review,
   NewCamp,
+  NewComment,
 };

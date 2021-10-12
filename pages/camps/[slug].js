@@ -1,38 +1,46 @@
-import { Layout, Seo, Review } from "../../components";
+import { Layout, Seo, Review, NewComment } from "../../components";
 import Image from "next/image";
+import Link from "next/link";
 import { appSvgs } from "../../public/appSvgs";
 import map from "../../assets/Map.png";
 import { camps } from "../../public/camps";
 import { useRouter } from "next/router";
+import { useGlobalContext } from "../../context/context";
+import { useState, useEffect } from "react";
+import { signIn, useSession } from "next-auth/client";
 
 const Details = () => {
   const router = useRouter();
   const slug = router.query.slug;
-  const res = camps.find((camp) => camp.slug.includes(slug));
+  const res = camps.find((camp) => camp.slug === slug);
+  const resReviews = res.reviews;
+  const [reviewList, setReviewList] = useState(resReviews);
+  const [session, loading] = useSession();
+  const { addComment, setAddComment } = useGlobalContext();
+  const style = {
+    display: "none",
+  };
 
-  const reviews = [
-    {
-      name: "Adam Jones",
-      time: "13h ago",
-      info: "Honestly one of the best experiences ever, took us a while to figure out how to get there but it was amazing!",
-    },
-    {
-      name: "Isaac Dylan",
-      time: "1 day ago",
-      info: "Travelling changes you as a person, you gain more perspective, this is the perfect spot to do that.",
-    },
-    {
-      name: "Hudson Luca",
-      time: "3 days ago",
-      info: "Definitely recommend going there, not too far and not a lot of people to ruin the experience.",
-    },
-  ];
+  // useEffect(() => {
+  //   const reviewListData = JSON.parse(localStorage.getItem("reviewList"));
+  //   if (reviewListData) {
+  //     setReviewList(reviewListData);
+  //   }
+  //   // localStorage.removeItem("reviewList");
+  // }, []);
+
+  useEffect(() => {
+    localStorage.setItem("reviewList", JSON.stringify(reviewList));
+  }, [reviewList]);
 
   return (
     <div className="container">
       <Layout Nav>
+        {addComment && (
+          <NewComment reviewList={reviewList} setReviewList={setReviewList} />
+        )}
         <Seo title={`YelpCamp | ${res && res.title}`} />
-        <div className="details-page">
+        <div className="details-page" style={addComment ? style : null}>
           <div className="details-page__left flex-ac-jc">
             <Image
               src={map && map}
@@ -52,27 +60,54 @@ const Details = () => {
                 />
                 <div className="flex-ac-jb">
                   <h4>{res && res.title}</h4>
-                  <h5>{res && res.price}</h5>
+                  <h5>{res && res.price}/night</h5>
                 </div>
                 <p>{res && res.full_info}</p>
-                <p className="submit-p">Submitted by Andrew Mike</p>
+                {session && (
+                  <p className="submit-p">
+                    Submitted by {session.user.name || session.user.email}
+                  </p>
+                )}
+                {!session && !loading && (
+                  <p className="submit-p">Submitted by Andrew Mike</p>
+                )}
               </div>
             </div>
             <div className="details-page__right--bottom">
               <div className="details-page__right--bottom__container">
-                {reviews.map((review) => (
-                  <Review review={review} key={review.name} />
+                {reviewList.map((review) => (
+                  <Review review={review} key={review.info} />
                 ))}
                 <div className="btn-container">
-                  <button className="flex-ac">
-                    <Image
-                      src={appSvgs.chat_bubble}
-                      width={24}
-                      height={25}
-                      alt="chat bubble"
-                    />
-                    <span> Leave a Review</span>
-                  </button>
+                  {!session && !loading && (
+                    <p>
+                      <Link href="/api/auth/signin">
+                        <a
+                          onClick={(e) => {
+                            e.preventDefault();
+                            signIn();
+                          }}
+                        >
+                          Login{" "}
+                        </a>
+                      </Link>
+                      to add a comment
+                    </p>
+                  )}
+                  {session && (
+                    <button
+                      className="flex-ac"
+                      onClick={() => setAddComment(true)}
+                    >
+                      <Image
+                        src={appSvgs.chat_bubble}
+                        width={24}
+                        height={25}
+                        alt="chat bubble"
+                      />
+                      <span> Leave a Review</span>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

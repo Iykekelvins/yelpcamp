@@ -1,6 +1,6 @@
 const Review = ({ review }) => {
   return (
-    <article className="">
+    <article>
       <div className="flex-ac-jb">
         <h4>{review && review.name}</h4>
         <h6>{review && review.time}</h6>
