@@ -27,6 +27,28 @@
   }
 }
 
+.new-comment {
+  transition: $transition;
+  animation-name: scale;
+  animation-duration: 1s;
+  width: 70%;
+  textarea {
+    background: $light-grey;
+    border-radius: 4px;
+    border: none;
+    font-family: "Poppins", sans-serif !important;
+    color: $grey-3;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    height: 180px;
+  }
+  .flex-ac {
+    align-items: unset;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+}
+
 @include media("<=980px") {
   .new-camp > .form {
     width: 50%;
@@ -39,6 +61,9 @@
   }
   .new-camp,
   .new-camp > .form {
+    width: 100%;
+  }
+  .new-comment {
     width: 100%;
   }
 }

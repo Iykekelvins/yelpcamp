@@ -1,20 +1,27 @@
 import { useState } from "react";
 import { Button, Input } from "../index";
 import { useGlobalContext } from "../../context/context";
+import { camps } from "../../public/camps";
 
 const NewCamp = () => {
   const { setAddCamp, campList, setCampList } = useGlobalContext();
-  const [img, setImg] = useState(null);
+  const [img, setImg] = useState();
+
   const onChangeImg = (e) => {
-    setImg(e.target.files[0]);
-    console.log(img);
+    if (e.target.files && e.target.files[0]) {
+      setImg(URL.createObjectURL(e.target.files[0]));
+    }
   };
   const [inputValue, setInputValue] = useState({
     title: "",
     full_info: "",
     price: "",
+    commentName: "",
+    commentTime: "",
+    commentInfo: "",
   });
-  const { title, full_info, price } = inputValue;
+  const { title, full_info, price, commentName, commentTime, commentInfo } =
+    inputValue;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,9 +33,18 @@ const NewCamp = () => {
 
   const addNewCampground = (e) => {
     e.preventDefault();
-    const newCamp = { title, full_info, price, img, slug: null };
+    const newCamp = {
+      id: new Date().getTime().toString(),
+      title,
+      full_info,
+      info: full_info.substring(0, 20),
+      reviews: [{ info: commentInfo, time: commentTime, name: commentName }],
+      price,
+      img,
+      slug: title.replace(" ", "-").toLowerCase(),
+    };
     setCampList([...campList, newCamp]);
-    console.log(newCamp);
+    campList.push(newCamp);
     setAddCamp(false);
   };
 
@@ -56,7 +72,7 @@ const NewCamp = () => {
           imgType="file"
           onChange={onChangeImg}
           name="file"
-          accept="image/png, image/jpeg"
+          accept="image/*"
         />
         <Input
           label="Description"

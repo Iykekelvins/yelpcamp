@@ -17,6 +17,7 @@ const Camps = () => {
       <Layout Nav>
         <Seo title="YelpCamp | Campgrounds" />
         {addCamp && <NewCamp />}
+
         <div style={addCamp ? style : null}>
           <CampHero />
           <CampContainer />
