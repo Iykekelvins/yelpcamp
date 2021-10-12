@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Input } from "../index";
 import { useGlobalContext } from "../../context/context";
-import { camps } from "../../public/camps";
+import { camps } from "../../pages/api/camps";
 
 const NewCamp = () => {
   const { setAddCamp, campList, setCampList } = useGlobalContext();

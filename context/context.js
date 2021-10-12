@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, createContext } from "react";
-import { camps } from "../public/camps";
+import { camps } from "../pages/api/camps";
 
 const AppContext = createContext();
 

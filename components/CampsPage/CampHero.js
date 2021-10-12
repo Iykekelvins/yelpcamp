@@ -2,7 +2,7 @@ import { Button } from "../index";
 import { appSvgs } from "../../public/appSvgs";
 import Image from "next/image";
 import { useState } from "react";
-import { camps } from "../../public/camps";
+import { camps } from "../../pages/api/camps";
 import { useGlobalContext } from "../../context/context";
 
 const CampHero = () => {
