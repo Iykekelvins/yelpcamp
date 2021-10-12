@@ -2,6 +2,7 @@ import { Logo, Button } from "../index";
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/client";
 import { appSvgs } from "../../public/appSvgs";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -13,7 +14,11 @@ const Navbar = () => {
       <nav className="navbar flex-ac-jb">
         <div className="navbar__left flex-ac">
           <Logo />
-          <button className="cta-btn nav-btn nav-btn__left">Home</button>
+          <Link href="/">
+            <a>
+              <button className="cta-btn nav-btn nav-btn__left">Home</button>
+            </a>
+          </Link>
         </div>
         <div className="navbar__right flex-ac">
           {!loading && !session && (
@@ -23,10 +28,9 @@ const Navbar = () => {
                   e.preventDefault();
                   signIn();
                 }}
+                className="cta-btn nav-btn__left"
               >
-                <button className="cta-btn nav-btn nav-btn__right">
-                  Login
-                </button>
+                <Button title="Login" />
               </a>
             </Link>
           )}
@@ -40,20 +44,15 @@ const Navbar = () => {
                   onClick={(e) => {
                     e.preventDefault();
                     signOut();
+                    className = "cta-btn ";
                   }}
                 >
-                  <button className="cta-btn nav-btn">Logout</button>
+                  <Button title="Logout" />
                 </a>
               </Link>
             </div>
           )}
-          {!session && !loading && (
-            <Link href="/sign-up">
-              <a className="cta-btn">
-                <Button title="Create an account" />
-              </a>
-            </Link>
-          )}
+
           <button
             className="toggle-btn hamburger-btn"
             onClick={() => setIsNav(!isNav)}
@@ -69,44 +68,47 @@ const Navbar = () => {
       </nav>
 
       {/* Phone Nav */}
-      {isNav && (
-        <nav className="phone-nav flex-ac-jc">
-          {!loading && !session && (
-            <Link href="/api/auth/signin">
-              <a
-                onClick={(e) => {
-                  e.preventDefault();
-                  signIn();
-                }}
-              >
-                <button className=" nav-btn nav-btn__right">Login</button>
-              </a>
-            </Link>
-          )}
-          {session && (
-            <>
-              <p className="name">{session.user.name || session.user.email}</p>
-              <Link href="/api/auth/signout">
+      <AnimatePresence>
+        {isNav && (
+          <motion.nav
+            className="phone-nav flex-ac-jc"
+            initial={{ x: -200, opacity: 0 }}
+            transition={{ type: "tween" }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -200, opacity: 0 }}
+          >
+            {!loading && !session && (
+              <Link href="/api/auth/signin">
                 <a
                   onClick={(e) => {
                     e.preventDefault();
-                    signOut();
+                    signIn();
                   }}
                 >
-                  <button className=" nav-btn">Logout</button>
+                  <Button title="Login" />
                 </a>
               </Link>
-            </>
-          )}
-          {!session && !loading && (
-            <Link href="/sign-up">
-              <a className="">
-                <Button title="Create an account" />
-              </a>
-            </Link>
-          )}
-        </nav>
-      )}
+            )}
+            {session && (
+              <>
+                <p className="name">
+                  {session.user.name || session.user.email}
+                </p>
+                <Link href="/api/auth/signout">
+                  <a
+                    onClick={(e) => {
+                      e.preventDefault();
+                      signOut();
+                    }}
+                  >
+                    <button className=" nav-btn">Logout</button>
+                  </a>
+                </Link>
+              </>
+            )}
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
