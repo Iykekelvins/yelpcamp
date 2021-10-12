@@ -19,6 +19,9 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        img {
+          object-fit: cover;
+        }
         p {
           margin-bottom: 0;
         }
@@ -41,6 +44,13 @@
         justify-content: center;
         margin-top: -1.5rem;
         margin-bottom: -1rem;
+        a {
+          border-bottom: 1px solid;
+          &:hover,
+          &:active {
+            color: $black;
+          }
+        }
         article {
           border-bottom: 1px solid $grey-border;
         }
