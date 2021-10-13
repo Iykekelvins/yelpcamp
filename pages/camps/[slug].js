@@ -32,7 +32,7 @@ const Details = () => {
   }, [reviewList]);
 
   return (
-    <div>
+    <div className="container">
       {res && Object.keys(res).length > 0 ? (
         <Layout>
           {addComment && (
@@ -82,15 +82,17 @@ const Details = () => {
                     {!session && !loading && (
                       <p>
                         <Link href="/api/auth/signin">
-                          <button
-                            className="review-btn-login"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              signIn();
-                            }}
-                          >
-                            Login{" "}
-                          </button>
+                          <a>
+                            <button
+                              className="review-btn-login"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                signIn();
+                              }}
+                            >
+                              Login{" "}
+                            </button>
+                          </a>
                         </Link>
                         to add a comment
                       </p>

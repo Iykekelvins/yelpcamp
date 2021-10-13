@@ -59,15 +59,17 @@ const CampHero = () => {
         {!session && !loading && (
           <p>
             <Link href="/api/auth/signin">
-              <button
-                className="add-camp-btn add-camp-btn--login"
-                onClick={(e) => {
-                  e.preventDefault();
-                  signIn();
-                }}
-              >
-                Login
-              </button>
+              <a>
+                <button
+                  className="add-camp-btn add-camp-btn--login"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    signIn();
+                  }}
+                >
+                  Login
+                </button>
+              </a>
             </Link>{" "}
             to add a campground
           </p>
