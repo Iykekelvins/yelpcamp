@@ -1,10 +1,14 @@
-import { Navbar } from "../index";
+import { Navbar, Logo, Owner } from "../index";
 
-const Layout = ({ children, Nav }) => {
+const Layout = ({ children }) => {
   return (
     <section>
-      {Nav && <Navbar />}
-      {children}
+      <Owner />
+      <section className="container">
+        <Navbar />
+        {children}
+        <Logo />
+      </section>
     </section>
   );
 };

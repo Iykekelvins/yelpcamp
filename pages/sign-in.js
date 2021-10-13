@@ -1,8 +1,8 @@
-import { Layout, Seo, Account } from "../components";
+import { Seo, Account } from "../components";
 
 const login = () => {
   return (
-    <Layout Nav={false}>
+    <div>
       <Seo title="YelpCamp | Sign In" />
       <Account
         passwordContent="Enter Your Password"
@@ -10,7 +10,7 @@ const login = () => {
         span="Create an account"
         btnContent="Login"
       />
-    </Layout>
+    </div>
   );
 };
 

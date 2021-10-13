@@ -1,10 +1,10 @@
-import { Layout, Seo, LandingPage } from "../components";
+import { Seo, LandingPage } from "../components";
 
 export default function Home() {
   return (
-    <Layout Nav={false}>
+    <section>
       <Seo title="YelpCamp" />
       <LandingPage />
-    </Layout>
+    </section>
   );
 }

@@ -2,7 +2,7 @@ import { Layout, Seo, Account } from "../components";
 
 const signUp = () => {
   return (
-    <Layout Nav={false}>
+    <div>
       <Seo title="YelpCamp | Sign Up" />
       <Account
         passwordContent="Choose Your Password"
@@ -10,7 +10,7 @@ const signUp = () => {
         span="Sign In"
         btnContent="Create an account"
       />
-    </Layout>
+    </div>
   );
 };
 

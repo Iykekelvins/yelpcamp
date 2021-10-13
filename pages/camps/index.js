@@ -13,11 +13,10 @@ const Camps = () => {
   };
   const { addCamp } = useGlobalContext();
   return (
-    <section className="camps container">
-      <Layout Nav>
+    <section className="camps ">
+      <Layout>
         <Seo title="YelpCamp | Campgrounds" />
         {addCamp && <NewCamp />}
-
         <div style={addCamp ? style : null}>
           <CampHero />
           <CampContainer />

@@ -20,14 +20,6 @@ const Details = () => {
     display: "none",
   };
 
-  // useEffect(() => {
-  //   const reviewListData = JSON.parse(localStorage.getItem("reviewList"));
-  //   if (reviewListData) {
-  //     setReviewList(reviewListData);
-  //   }
-  //   // localStorage.removeItem("reviewList");
-  // }, []);
-
   useEffect(() => {
     res &&
       Object.keys(res).length > 0 &&
@@ -40,9 +32,9 @@ const Details = () => {
   }, [reviewList]);
 
   return (
-    <div className="container">
+    <div>
       {res && Object.keys(res).length > 0 ? (
-        <Layout Nav>
+        <Layout>
           {addComment && (
             <NewComment reviewList={reviewList} setReviewList={setReviewList} />
           )}
@@ -90,21 +82,22 @@ const Details = () => {
                     {!session && !loading && (
                       <p>
                         <Link href="/api/auth/signin">
-                          <a
+                          <button
+                            className="review-btn-login"
                             onClick={(e) => {
                               e.preventDefault();
                               signIn();
                             }}
                           >
                             Login{" "}
-                          </a>
+                          </button>
                         </Link>
                         to add a comment
                       </p>
                     )}
                     {session && (
                       <button
-                        className="flex-ac"
+                        className="flex-ac review-btn"
                         onClick={() => setAddComment(true)}
                       >
                         <Image
@@ -122,9 +115,7 @@ const Details = () => {
             </div>
           </div>
         </Layout>
-      ) : (
-        "loading..."
-      )}
+      ) : null}
     </div>
   );
 };

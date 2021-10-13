@@ -6,6 +6,7 @@ import Seo from "./Reusable/Seo";
 import Button from "./Reusable/Button";
 import Logo from "./Reusable/Logo";
 import Input from "./Reusable/Input";
+import Owner from "./Reusable/Owner";
 
 //Landing Page
 import LandingPage from "./LandingPage/LandingPage";
@@ -26,6 +27,7 @@ export {
   Button,
   Logo,
   Input,
+  Owner,
   LandingPage,
   CampHero,
   CampContainer,
