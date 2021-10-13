@@ -44,8 +44,12 @@
         justify-content: center;
         margin-top: -1.5rem;
         margin-bottom: -1rem;
-        a {
-          border-bottom: 1px solid;
+        .review-btn-login {
+          text-decoration: underline;
+          font-style: italic;
+          background: none;
+          color: $grey-3;
+          transition: $transition;
           &:hover,
           &:active {
             color: $black;
@@ -57,7 +61,7 @@
         .flex-ac-jb {
           margin-bottom: -1rem;
         }
-        button {
+        .review-btn {
           border: none;
           background: $black;
           color: $white;

@@ -12,9 +12,11 @@
     padding-left: 1rem;
     margin-top: 0.5rem;
     &[type="file"] {
-      color: rgba(0, 0, 0, 0);
-      // text-indent: -999em;
       cursor: pointer;
+      padding-top: 0.7rem;
+    }
+    &::-webkit-file-upload-button {
+      display: none;
     }
   }
   button {
