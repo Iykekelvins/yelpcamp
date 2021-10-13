@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button, Input } from "../index";
 import { useGlobalContext } from "../../context/context";
-import { camps } from "../../pages/api/camps";
 
 const NewCamp = () => {
   const { setAddCamp, campList, setCampList } = useGlobalContext();
@@ -37,7 +36,7 @@ const NewCamp = () => {
       id: new Date().getTime().toString(),
       title,
       full_info,
-      info: full_info.substring(0, 20),
+      info: `${full_info.substring(0, 60)}.`,
       reviews: [{ info: commentInfo, time: commentTime, name: commentName }],
       price,
       img,
