@@ -9,16 +9,16 @@ const AppProvider = ({ children }) => {
   const [addCamp, setAddCamp] = useState(false);
   const [addComment, setAddComment] = useState(false);
 
-  // useEffect(() => {
-  //   const campListData = JSON.parse(localStorage.getItem("campList"));
-  //   if (campListData) {
-  //     setCampList(campListData);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const campListData = JSON.parse(localStorage.getItem("campList"));
+    if (campListData) {
+      setCampList(campListData);
+    }
+  }, []);
 
-  // useEffect(() => {
-  //   localStorage.setItem("campList", JSON.stringify(campList));
-  // }, [campList]);
+  useEffect(() => {
+    localStorage.setItem("campList", JSON.stringify(campList));
+  }, [campList]);
 
   return (
     <AppContext.Provider
