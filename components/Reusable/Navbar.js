@@ -44,8 +44,8 @@ const Navbar = () => {
                   onClick={(e) => {
                     e.preventDefault();
                     signOut();
-                    className = "cta-btn";
                   }}
+                  className="cta-btn"
                 >
                   <Button title="Logout" />
                 </a>
