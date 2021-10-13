@@ -32,7 +32,7 @@ const Details = () => {
   }, [reviewList]);
 
   return (
-    <div className="container">
+    <div>
       {res && Object.keys(res).length > 0 ? (
         <Layout>
           {addComment && (
