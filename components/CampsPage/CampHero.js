@@ -2,10 +2,14 @@ import { Button } from "../index";
 import { appSvgs } from "../../public/appSvgs";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 import { camps } from "../../pages/api/camps";
+import { signIn, useSession } from "next-auth/client";
+
 import { useGlobalContext } from "../../context/context";
 
 const CampHero = () => {
+  const [session, loading] = useSession();
   const [inputValue, setInputValue] = useState("");
   const { setCampList, setEmptyCampList, setAddCamp } = useGlobalContext();
 
@@ -52,9 +56,30 @@ const CampHero = () => {
           </div>
           <Button title="Search" />
         </form>
-        <button className="add-camp-btn" onClick={() => setAddCamp(true)}>
-          Or add your own campground
-        </button>
+        {!session && !loading && (
+          <p>
+            <Link href="/api/auth/signin">
+              <button
+                className="add-camp-btn add-camp-btn--login"
+                onClick={(e) => {
+                  e.preventDefault();
+                  signIn();
+                }}
+              >
+                Login
+              </button>
+            </Link>{" "}
+            to add a campground
+          </p>
+        )}
+        {session && (
+          <button
+            className="add-camp-btn add-camp-btn--add-new"
+            onClick={() => setAddCamp(true)}
+          >
+            Or add your own campground
+          </button>
+        )}
       </div>
     </section>
   );
