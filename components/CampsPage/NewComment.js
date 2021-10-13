@@ -2,6 +2,7 @@ import { Button } from "../index";
 import { useGlobalContext } from "../../context/context";
 import { useSession } from "next-auth/client";
 import { useState } from "react";
+import moment from "moment";
 
 const NewComment = ({ reviewList, setReviewList }) => {
   const { setAddComment } = useGlobalContext();
@@ -10,7 +11,12 @@ const NewComment = ({ reviewList, setReviewList }) => {
 
   const addReview = (e) => {
     e.preventDefault();
-    const newReviewList = { name: session.user.name, info: textValue };
+    const newReviewList = {
+      name: session.user.name,
+      info: textValue,
+      info: textValue,
+      time: moment().startOf("second").fromNow(),
+    };
     setReviewList([...reviewList, newReviewList]);
     reviewList.push(newReviewList);
 
