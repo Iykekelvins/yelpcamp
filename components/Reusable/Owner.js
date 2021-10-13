@@ -11,11 +11,19 @@ const Owner = () => {
           <div className="project-owner--info">
             <p>
               This project was made by{" "}
-              <a target="_blank" href="https://www.linkedin.com/in/coltsteele/">
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.linkedin.com/in/coltsteele/"
+              >
                 Colt steele
               </a>{" "}
               and designed by{" "}
-              <a href="https://www.codewell.cc/" target="_blank">
+              <a
+                href="https://www.codewell.cc/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Codewell
               </a>
             </p>
