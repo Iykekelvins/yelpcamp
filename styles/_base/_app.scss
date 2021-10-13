@@ -34,3 +34,24 @@ input {
   display: flex;
   align-items: center;
 }
+
+.project-owner {
+  margin-top: -1rem;
+  background: $black;
+  padding: 0.5rem;
+  color: $white;
+  text-align: center;
+  &--info {
+    display: flex;
+    justify-content: center;
+  }
+  a {
+    text-decoration: underline;
+    color: rgb(51, 51, 236);
+  }
+  button {
+    background: none;
+    transform: scale(1.5);
+    margin-left: 0.5rem;
+  }
+}
