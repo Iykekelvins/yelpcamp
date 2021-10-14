@@ -72,11 +72,19 @@ const Navbar = () => {
         {isNav && (
           <motion.nav
             className="phone-nav flex-ac-jc"
-            initial={{ x: -200, opacity: 0 }}
+            initial={{ x: 200, opacity: 0 }}
             transition={{ type: "tween" }}
             animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -200, opacity: 0 }}
+            exit={{ x: 200, opacity: 0 }}
           >
+            <button onClick={() => setIsNav(false)} className="close-btn">
+              <Image
+                src={appSvgs.close}
+                height={11}
+                width={11}
+                alt="close icon"
+              />
+            </button>
             {!loading && !session && (
               <Link href="/api/auth/signin">
                 <a
