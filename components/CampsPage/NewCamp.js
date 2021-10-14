@@ -15,8 +15,12 @@ const NewCamp = () => {
     title: "",
     full_info: "",
     price: "",
+    commentName: "",
+    commentTime: "",
+    commentInfo: "",
   });
-  const { title, full_info, price } = inputValue;
+  const { title, full_info, price, commentInfo, commentName, commentTime } =
+    inputValue;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,6 +39,7 @@ const NewCamp = () => {
       info: `${full_info.substring(0, 60)}.`,
       price,
       img,
+      reviews: [{ name: commentName, info: commentInfo, time: commentTime }],
       slug: title.replace(" ", "-").toLowerCase(),
     };
     setCampList([...campList, newCamp]);
