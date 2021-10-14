@@ -7,7 +7,9 @@ const Layout = ({ children }) => {
       <section className="container">
         <Navbar />
         {children}
-        <Logo />
+        <div style={{ marginTop: "4rem", marginBottom: "2rem" }}>
+          <Logo />
+        </div>
       </section>
     </section>
   );
